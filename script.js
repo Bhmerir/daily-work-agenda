@@ -1,11 +1,15 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-$(function () {
+/*toDolist is a list of objects, each object has 2 key-value pairs: 
+first key is called hour and keep the value of hour that a program is written for that,
+second key is called program and its value is the written program for that hour */
+var toDoList = [];
 
+$(function () {
+// building dynamically the elements and coloring them based on the time  
   var containerEl = $(".container-lg")
   var today = dayjs();
   var currentHour = today.format("H")
+  var currentDay = today.format("dddd, MMMM D, YYYY")
+  $("#currentDay").text(currentDay);
   for(var i = 9; i < 17; i++){
     var parentdiv = $("<div>").addClass("row time-block");
     parentdiv.attr("id", "hour-"+i);
@@ -49,8 +53,33 @@ $(function () {
     saveBtn.append(iSec);
     parentdiv.append(nextdiv, textareaSec, saveBtn);
     containerEl.append(parentdiv);
+    //adding the saved to-do-list for each work hour to the related text-area 
   }
 
+  $(".saveBtn").on("click", saveProgram)
+
+
+  function saveProgram(){
+    var chosenDiv = $(this).parent()
+    var chosenDivId = chosenDiv.attr("id");
+    var chosenHourIdArray = chosenDivId.split("-");
+    var chosenHour = chosenHourIdArray[1];
+    var program = chosenDiv.children().eq(1).val(); //.description
+    var programHour = {
+                        hour: chosenHour,
+                        program: program
+                      }
+    var notFound = true;
+    $.each(toDoList,function(index, value){
+      if (toDoList[index].hour == chosenHour){
+        toDoList[index].program = program;
+        notFound = false;
+      }
+    })
+    if(notFound){
+      toDoList.push(programHour)
+    } 
+  }
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
