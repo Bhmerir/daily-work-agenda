@@ -10,13 +10,14 @@ In order to achieve this goal, I took the following steps:
 
 1. show the current date
 
-2. make all the work hour sections dynamically
+2. build all the work hour sections dynamically
 
-3. color each work hour based on current hour (gray for past hours, red for current hour, and green for upcoming hours)
+3. color each work hour based on current hour (gray for past hours, red for current hour, and green for upcoming hours) 
+4. check the colors each second and change them if the current hour has been changed
 
-4. show the saved to-do list based on hour
+5. show the saved to-do list based on hour
 
-5. save new to-do list for each hour after pressing its save button
+6. save new to-do list for each hour after pressing its save button
 
 6. delete the saved to-do list of each hour after pressing its save button
 
@@ -30,7 +31,7 @@ In order to achieve this goal, I took the following steps:
 
 ---------------------------------
 
-![my-deployed-page.png](my-deployed-page.png)
+![my-deployed-site.png](my-deployed-site.png)
 
 <br>
 
@@ -68,7 +69,7 @@ By opening page, the current date is shown. The user can write a to-do list for 
 
 ---------------------------------
 
-[]()
+[https://bhmerir.github.io/daily-work-agenda](https://bhmerir.github.io/daily-work-agenda)
 
 <br>
 
