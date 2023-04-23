@@ -19,7 +19,7 @@ In order to achieve this goal, I took the following steps:
 
 6. save new to-do list for each hour after pressing its save button
 
-6. delete the saved to-do list of each hour after pressing its save button
+7. delete the saved to-do list of each hour after pressing its save button
 
 
 <br>
